@@ -141,6 +141,7 @@ header .logo {
     position: relative;
     justify-content: flex-start;
     right: 50px;
+    transition: 0.3s;
 }
 
 header .logo img {
@@ -149,6 +150,11 @@ header .logo img {
     top: 70%;
     transform: translateY(-50%);
     left: 0;
+    transition: 0.3s;
+}
+
+header .logo:hover {
+    transform: scale(1.1);
 }
 
 header .logo p {
@@ -364,13 +370,6 @@ header nav .form i {
 @media (max-width: 992px) {
     .services .services-container {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        text-align: center;
-    }
-}
-
-@media (min-width: 768px) {
-    .services .services-container {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         text-align: center;
     }
 }
