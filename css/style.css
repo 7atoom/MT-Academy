@@ -137,9 +137,10 @@ header .container::after {
 
 header .logo {
     display: flex;
-    align-items: center;
+    align-content: center;
     position: relative;
     justify-content: flex-start;
+    right: 50px;
 }
 
 header .logo img {
@@ -271,6 +272,14 @@ header nav .form i {
     align-items: center;
 }
 
+@media (max-width: 992px) {
+    .landing .container {
+        width: 100%;
+        padding: 0 15px;
+        justify-content: center;
+    }
+}
+
 .landing .container .landing-content {
     max-width: 500px;
 }
@@ -341,15 +350,28 @@ header nav .form i {
 
 /* services start */
 
-.services .container {
+.services {
+    padding: var(--section-padding) 0;
+    position: relative;
+}
+
+.services .services-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-gap: 30px;
+    grid-gap: 20px 30px;
 }
 
 @media (max-width: 992px) {
-    .services .container {
+    .services .services-container {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .services .services-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        text-align: center;
     }
 }
 
