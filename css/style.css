@@ -15,7 +15,7 @@ html {
 }
 
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Exo 2", sans-serif;
 }
 
 li {
@@ -61,43 +61,55 @@ a {
     text-transform: uppercase;
     font-size: 40px;
     font-weight: 600;
-    margin: 70px auto;
-}
-
-.main-heading h1::before {
-    content: "";
-    width: 14px;
-    height: 14px;
-    position: absolute;
-    border: 2px solid #333;
-    border-radius: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -97px;
-    background-color: white;
-    z-index: 2;
-    bottom: calc(-90px - 77px);
-}
-
-.main-heading h1::after {
-    content: "";
-    width: 120px;
-    height: 3px;
-    position: absolute;
-    background-color: #333;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: calc(-90px - 70px);
+    margin: 30px auto 10px;
+    color: #333;
 }
 
 .main-heading p {
     font-size: 18px;
-    margin-top: 20px;
     color: #333;
     font-weight: 600;
     width: 500px;
     margin: 0 auto 100px;
     max-width: 100%;
+}
+
+.go-down {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    transform: translateX(-40px);
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    animation: goDown 1s infinite;
+    transition: 0.3s;
+    background-color: var(--transparent-color);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.go-down:hover {
+    background-color: var(--transparent-color);
+    box-shadow: 0 0 10px 0px #afb9d0;
+}
+
+.go-down a {
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    animation: goDown 1s infinite;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 992px) {
+    .go-down {
+        display: none;
+    }
 }
 
 .container {
@@ -234,7 +246,6 @@ header nav .form {
 header nav .form i {
     color: white;
     position: absolute;
-    font-size: 20px;
     top: 50%;
     transform: translateY(-50%);
     right: 0;
@@ -297,7 +308,6 @@ header nav .form i {
     -webkit-text-fill-color: transparent;
     font-size: 50px;
     font-weight: 600;
-    margin-bottom: 20px;
 }
 
 .landing .container .landing-content p {
@@ -348,7 +358,6 @@ header nav .form i {
         font-size: 16px;
     }
     .landing .container .landing-content .btn {
-        padding: 10px 20px;
         font-size: 12px;
     }
 }
@@ -364,7 +373,7 @@ header nav .form i {
 .services .services-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-gap: 20px 30px;
+    gap: 10px 50px;
 }
 
 @media (max-width: 992px) {
@@ -375,13 +384,13 @@ header nav .form i {
 }
 
 .services .container .box {
-    padding: 40px;
+    padding: 60px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px 0px #ccc;
     transition: 0.3s;
     position: relative;
-    margin: 0 10px 30px 10px;
+    margin: 0 10px 50px 10px;
 }
 
 .services .container .box i {
@@ -397,9 +406,7 @@ header nav .form i {
     box-shadow: 0 0 10px 0px #ccc;
 }
 
-.services .container .box .text {
-    margin-top: 20px;
-}
+.services .container .box .text {}
 
 .services .container .box .text h3 {
     font-size: 24px;
@@ -415,6 +422,31 @@ header nav .form i {
 }
 
 .services .container .box:hover {
+    box-shadow: 0 0 10px 0px var(--main-color);
+}
+
+.btn-service {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    padding: 15px 30px;
+    border-radius: 30px;
+    margin-top: 30px;
+    /* width: 50%;
+    margin-left: auto; */
+}
+
+.btn-service a {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-service:hover {
+    background-color: var(--main-color);
     box-shadow: 0 0 10px 0px var(--main-color);
 }
 
@@ -456,7 +488,6 @@ header nav .form i {
     color: white;
     font-size: 50px;
     font-weight: 600;
-    margin-bottom: 20px;
 }
 
 .scholarships .container .content ul {
@@ -474,6 +505,29 @@ header nav .form i {
 .scholarships .container .content ul li i {
     color: gray;
     margin-right: 10px;
+}
+
+.scholarships .container .content .btn-scholarships {
+    background-color: rgb(156, 223, 156);
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.scholarships .container .content .btn-scholarships:hover {
+    background-color: rgb(156, 223, 156);
+    box-shadow: 0 0 10px 0px rgb(156, 223, 156);
+}
+
+.scholarships .container .content .btn-scholarships a {
+    color: black;
 }
 
 @media (max-width: 992px) {
@@ -495,5 +549,114 @@ header nav .form i {
     }
     .scholarships .container .content ul li i {
         font-size: 16px;
+    }
+    .scholarships .container .content .btn-scholarships {
+        width: 100%;
+        margin: 20px auto;
+    }
+}
+
+
+/* sholarships end */
+
+
+/* about start */
+
+.about {
+    padding-top: 10rem;
+}
+
+.video {
+    position: relative;
+    height: 100vh;
+}
+
+.video::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 110vh;
+    background-color: rgb(0 0 0 / 80%);
+}
+
+.video video {
+    width: 100%;
+}
+
+.video .text {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 70px;
+    color: white;
+    text-align: left;
+}
+
+.video .text p {
+    margin-bottom: 20px;
+    font-size: 70px;
+    font-weight: bolder;
+    /* text-shadow: 0 0 10px black; */
+    background: linear-gradient(to left, #7595da 50%, #a97233);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: .6s ease;
+}
+
+.video .text p:hover {
+    font-size: 80px;
+}
+
+.video .check {
+    width: 100%;
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    text-align: center;
+    padding: 18px 0;
+    background: linear-gradient(to left, #7595da, #a97233);
+    transition: .5s ease;
+}
+
+.video .check a {
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    transition: .5s ease;
+}
+
+@media (max-width: 992px) {
+    .video .text {
+        width: 100%;
+        padding: 30px;
+        text-align: center;
+    }
+    .video::before {
+        background-color: rgb(0 0 0 / 100%);
+        height: 80vh;
+    }
+    .video .text p {
+        font-size: 40px;
+        line-height: 2;
+    }
+    .video .check {
+        padding: 20px 5px;
+        transform: translatey(-40px);
+    }
+    .video .check a {
+        font-size: 20px;
+    }
+    .video .text p:hover {
+        font-size: 45px;
+    }
+    .video {
+        height: 80vh;
+        /* display: none; */
+    }
+    .video video {
+        display: none;
     }
 }
