@@ -91,6 +91,7 @@ a {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    z-index: 2;
 }
 
 .go-down:hover {
@@ -113,8 +114,8 @@ a {
 }
 
 .container {
-    padding-left: 15px;
-    padding-right: 15px;
+    /* padding-left: 15px; */
+    /* padding-right: 15px; */
     margin-left: auto;
     margin-right: auto;
 }
@@ -126,7 +127,7 @@ header {
     position: absolute;
     left: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 4;
 }
 
 header .container {
@@ -134,7 +135,7 @@ header .container {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    min-height: 97px;
+    min-height: 90px;
 }
 
 header .container::after {
@@ -143,7 +144,7 @@ header .container::after {
     height: 1px;
     background-color: #a2a2a2;
     bottom: 0;
-    width: calc(100% - 30px);
+    width: calc(100%);
     left: 15px;
 }
 
@@ -256,52 +257,77 @@ header nav .form i {
 /* header end */
 
 
-/* landing start */
+/* sliders start */
 
-.landing {
+.sliders {
     position: relative;
-    background-image: url(../images/landing.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
 }
 
-.overlay {
+.sliders .slides-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* overflow: hidden; */
+}
+
+.sliders .slides-container .slide {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
-    background-color: black;
-    opacity: 0.7;
+    height: 100vh;
+    transition: 0.3s;
+    z-index: 2;
+    opacity: 0;
 }
 
-.landing .container {
+.sliders .slides-container .slide.active {
+    opacity: 1;
+    z-index: 3;
+}
+
+.sliders .slides-container .slide .image {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.sliders .slides-container .slide .image::after {
+    content: "";
     position: absolute;
+    height: 100vh;
     left: 0;
+    top: 0;
+    width: 100%;
+    background-color: rgb(0 0 0 / 60%);
+    z-index: 1;
+}
+
+.sliders .slides-container .slide .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sliders .slides-container .slide.language .text {
+    position: absolute;
+    left: 5%;
     top: 50%;
     transform: translateY(-50%);
+    padding: 0 50px;
     width: 50%;
+    transition: 0.3s;
+    z-index: 2;
+    text-align: left;
+    line-height: 1.5;
     padding: 50px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    height: 50vh;
 }
 
-@media (max-width: 992px) {
-    .landing .container {
-        width: 100%;
-        padding: 0 15px;
-        justify-content: center;
-    }
-}
-
-.landing .container .landing-content {
-    max-width: 500px;
-}
-
-.landing .container .landing-content h1 {
+.sliders .slides-container .slide.language .text h1 {
     color: white;
     background: linear-gradient(to left, #afb9d0, #091214);
     -webkit-background-clip: text;
@@ -310,7 +336,7 @@ header nav .form i {
     font-weight: 600;
 }
 
-.landing .container .landing-content p {
+.sliders .slides-container .slide.language .text p {
     color: white;
     font-size: 18px;
     margin-bottom: 30px;
@@ -318,7 +344,7 @@ header nav .form i {
     line-height: 1.5;
 }
 
-.landing .container .landing-content .btn {
+.sliders .slides-container .slide.language .text .btn {
     background: linear-gradient(to left, #afb9d0, #091214);
     color: white;
     padding: 15px 30px;
@@ -329,7 +355,7 @@ header nav .form i {
     transition: 0.3s;
 }
 
-.landing .container .landing-content .btn:hover {
+.sliders .slides-container .slide.language .text .btn:hover {
     background: linear-gradient(to left, #afb9d0, #091214);
     color: white;
     padding: 15px 30px;
@@ -341,25 +367,205 @@ header nav .form i {
     box-shadow: 0 0 10px 0px #afb9d0;
 }
 
-@media (max-width: 992px) {
-    .landing .container {
-        width: 100%;
-    }
-    .landing .container .landing-content {
-        max-width: 100%;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-    }
-    .landing .container .landing-content h1 {
-        font-size: 40px;
-    }
-    .landing .container .landing-content p {
-        font-size: 16px;
-    }
-    .landing .container .landing-content .btn {
-        font-size: 12px;
-    }
+.slide.offers .text {
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 20px 20px 45px;
+    width: 50%;
+    transition: 0.3s;
+    z-index: 2;
+    text-align: left;
+    /* line-height: 1.5; */
+    /* height: 50vh;s */
+    text-align: center;
+    background-color: var(--transparent-color);
+    border-radius: 20px 100px 20px 100px;
+}
+
+.slide.offers .text h1 {
+    color: white;
+    background: linear-gradient(to left, #315cba, #20afcf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.slide.offers .text p {
+    color: #20afcf;
+    font-size: 28px;
+    margin: -10px 0 40px;
+    padding: 10px 0;
+    line-height: 1.5;
+}
+
+.slide.offers .text .btn {
+    background: linear-gradient(to left, #315cba, #20afcf);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.slide.offers .text .btn:hover {
+    background: linear-gradient(to left, #315cba, #20afcf);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+    box-shadow: 0 0 10px 0px #afb9d0;
+}
+
+.slide.activities .text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    transition: 0.3s;
+    z-index: 2;
+    text-align: left;
+    line-height: 1.5;
+    padding: 50px 70px 50px 50px;
+    height: 50vh;
+    text-align: right;
+    background-color: rgba(37, 48, 37, 0.4);
+    border-radius: 100px 20px 100px 20px;
+}
+
+.slide.activities .text h1 {
+    color: white;
+    background: linear-gradient(to left, #afb9d0, rgb(174, 226, 210));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.slide.activities .text p {
+    color: #afb9d0;
+    font-size: 18px;
+    margin-bottom: 30px;
+    padding: 10px 0;
+    line-height: 1.5;
+}
+
+.slide.activities .text .btn {
+    background: linear-gradient(to left, #afb9d0, rgb(174, 226, 210));
+    color: black;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.slide.activities .text .btn:hover {
+    background: linear-gradient(to left, #afb9d0, rgb(174, 226, 210));
+    color: black;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+    box-shadow: 0 0 10px 0px #afb9d0;
+}
+
+.slider-controls {
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    transform: translateY(50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+    z-index: 3;
+}
+
+.slider-controls .prev,
+.slider-controls .next {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 5px 0px #ccc;
+}
+
+.slider-controls .prev:hover,
+.slider-controls .next:hover {
+    background-color: rgb(122, 188, 203);
+}
+
+.slider-controls .prev i,
+.slider-controls .next i {
+    color: white;
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slider-controls .prev {
+    left: 0;
+}
+
+.slider-controls .next {
+    right: 0;
+}
+
+.slider-controls .prev.hide,
+.slider-controls .next.hide {
+    display: none;
+}
+
+.slider-controls .bullets {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -400px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.3s;
+}
+
+.slider-controls .bullets span {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #121b30;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 5px 0px #ccc;
+}
+
+.slider-controls .bullets span.active {
+    background-color: rgb(122, 188, 203);
+    width: 10px;
+    height: 10px;
+}
+
+.slider-controls .bullets span:hover {
+    background-color: rgb(122, 188, 203);
 }
 
 
@@ -490,6 +696,16 @@ header nav .form i {
 
 .exam .btn-service a {
     color: white;
+}
+
+.services .container .box {
+    height: 330px;
+}
+
+@media (max-width: 992px) {
+    .services .container .box {
+        height: fit-content;
+    }
 }
 
 .services .container .box i {
@@ -719,7 +935,7 @@ header nav .form i {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin-top: -4rem;
+        margin-top: -6rem;
     }
     .video .text {
         width: 100%;
@@ -729,9 +945,10 @@ header nav .form i {
         transform: translateY(0);
         padding-left: 0;
         margin-top: 10px;
+        line-height: 1.3;
     }
     .video .text p {
-        font-size: 50px;
+        font-size: 45px;
     }
     .video .check-btn {
         position: relative;
@@ -746,4 +963,95 @@ header nav .form i {
         background-color: var(--transparent-color);
         box-shadow: 0 0 10px 0px #030814;
     }
+}
+
+
+/* about end */
+
+
+/* our Instructors */
+
+.instructors {
+    margin-top: 10rem;
+    padding: var(--section-padding) 0;
+    position: relative;
+}
+
+.instructors-slider {
+    width: 100%;
+    height: 100svh;
+    position: relative;
+}
+
+.instructors-slider .slider-box {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.instructors-slider .slider-box.active {
+    opacity: 1;
+}
+
+.instructors-slider .slider-box .image {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.instructors-slider .slider-box .image::after {
+    content: "";
+    position: absolute;
+    height: 85vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: rgb(0 0 0 / 55%);
+}
+
+.instructors-slider .slider-box .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.instructors-slider .slider-box .text {
+    position: absolute;
+    left: 0;
+    top: 35%;
+    transform: translateY(-50%);
+    padding: 0 50px;
+    width: 50%;
+    transition: 0.3s;
+    z-index: 2;
+    text-align: left;
+    line-height: 1.5;
+    background-color: rgba(17, 40, 58, .8);
+    padding: 50px;
+    border-radius: 0 10px 10px 0;
+}
+
+.instructors-slider .slider-box .text h3 {
+    font-size: 60px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    background: linear-gradient(to left, #0d3ba4, rgb(122, 188, 203));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: .8s ease;
+}
+
+.instructors-slider .slider-box .text p {
+    font-size: 48px;
+    line-height: 1.5;
+    color: black;
+    background: linear-gradient(to left, #0d3ba4, rgb(122, 188, 203));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: .8s ease;
+    background-color: #121b30;
 }
