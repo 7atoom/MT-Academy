@@ -28,19 +28,19 @@ for (var i = 0; i < bullets.length; i++) {
 
 
 function next() {
-    if (currentBox === 1) {
-        currentBox = boxesCounter;
+    if (currentBox == boxesCounter) {
+        currentBox = 1;
     } else {
-        currentBox--;
+        currentBox++;
     }
     check();
 }
 
 function prev() {
-    if (currentBox === boxesCounter) {
-        currentBox = 1;
+    if (currentBox == 1) {
+        currentBox = boxesCounter;
     } else {
-        currentBox++;
+        currentBox--;
     }
     check();
 }

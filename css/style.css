@@ -774,6 +774,17 @@ header nav .form i {
     min-height: 100vh;
 }
 
+.scholarships::after {
+    content: "";
+    position: absolute;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: rgb(0 0 0 / 60%);
+    z-index: 1;
+}
+
 .scholarships .container {
     position: absolute;
     left: 0;
@@ -787,6 +798,7 @@ header nav .form i {
     background-color: var(--transparent-color);
     border-top-right-radius: .5rem;
     border-bottom-right-radius: .5rem;
+    z-index: 2;
 }
 
 .scholarships .container .content {
