@@ -540,7 +540,7 @@ header nav .form i {
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: -47vh;
+    bottom: -380px;
     left: 50%;
     transform: translateX(-50%);
     transition: 0.3s;
