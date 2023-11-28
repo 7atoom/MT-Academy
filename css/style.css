@@ -127,13 +127,13 @@ header .nav-container {
     display: flex;
     align-items: center;
     position: relative;
-    min-height: 50px;
+    height: 75px;
     padding: 0 90px;
     box-shadow: 0 0 10px 0px #ccc;
 }
 
 header .logo {
-    width: 50px;
+    width: 60px;
 }
 
 header .logo img {
