@@ -12,11 +12,38 @@ nextBtn.onclick = next;
 prevBtn.onclick = prev;
 
 
+
+
+
 var boxesCounter = sliderBoxes.length;
 var currentBox = 1;
+var autoplayInterval;
+
+// Autoplay function
+function startAutoplay() {
+    if (currentBox == 1) {
+        autoplayInterval = setInterval(next, 6000); // Change the interval as per your requirement (in milliseconds)
+    } else {
+        autoplayInterval = setInterval(next, 3000); // Change the interval as per your requirement (in milliseconds)
+    }
+}
+
+// Stop autoplay function
+function stopAutoplay() {
+    clearInterval(autoplayInterval);
+}
+
+// Start autoplay on page load
+startAutoplay();
 
 
 
+
+// Stop autoplay when user interacts with the slider
+sliderBoxes.forEach(function(box) {
+    box.addEventListener("mouseenter", stopAutoplay);
+    box.addEventListener("mouseleave", startAutoplay);
+});
 
 for (var i = 0; i < bullets.length; i++) {
     bullets[i].onclick = function() {
@@ -24,8 +51,6 @@ for (var i = 0; i < bullets.length; i++) {
         check();
     }
 }
-
-
 
 function next() {
     if (currentBox == boxesCounter) {
@@ -49,9 +74,6 @@ function check() {
     removeActive();
     sliderBoxes[currentBox - 1].classList.add("active");
     bullets[currentBox - 1].classList.add("active");
-
-
-
 }
 
 function removeActive() {
