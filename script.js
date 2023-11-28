@@ -24,7 +24,7 @@ function startAutoplay() {
     if (currentBox == 1) {
         autoplayInterval = setInterval(next, 6000); // Change the interval as per your requirement (in milliseconds)
     } else {
-        autoplayInterval = setInterval(next, 3000); // Change the interval as per your requirement (in milliseconds)
+        autoplayInterval = setInterval(next, 5000); // Change the interval as per your requirement (in milliseconds)
     }
 }
 
