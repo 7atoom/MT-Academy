@@ -8,9 +8,17 @@ var boxText = Array.from(document.querySelectorAll(".text"));
 var nextBtn = document.querySelector(".next");
 var prevBtn = document.querySelector(".prev");
 
+var toggleMenu = document.querySelector(".toggle-menu");
+
 nextBtn.onclick = next;
 prevBtn.onclick = prev;
 
+
+toggleMenu.onclick = function() {
+    var menu = document.querySelector("nav ul");
+    menu.classList.toggle("active");
+    toggleMenu.classList.toggle("active");
+}
 
 
 
@@ -19,22 +27,22 @@ var boxesCounter = sliderBoxes.length;
 var currentBox = 1;
 var autoplayInterval;
 
-// Autoplay function
-function startAutoplay() {
-    if (currentBox == 1) {
-        autoplayInterval = setInterval(next, 6000); // Change the interval as per your requirement (in milliseconds)
-    } else {
-        autoplayInterval = setInterval(next, 5000); // Change the interval as per your requirement (in milliseconds)
-    }
-}
+// // Autoplay function
+// function startAutoplay() {
+//     if (currentBox == 1) {
+//         autoplayInterval = setInterval(next, 6000); // Change the interval as per your requirement (in milliseconds)
+//     } else {
+//         autoplayInterval = setInterval(next, 5000); // Change the interval as per your requirement (in milliseconds)
+//     }
+// }
 
-// Stop autoplay function
-function stopAutoplay() {
-    clearInterval(autoplayInterval);
-}
+// // Stop autoplay function
+// function stopAutoplay() {
+//     clearInterval(autoplayInterval);
+// }
 
-// Start autoplay on page load
-startAutoplay();
+// // Start autoplay on page load
+// startAutoplay();
 
 
 
